@@ -48,10 +48,6 @@ Plotted the actual stock prices against the model's predicted prices to visually
 
 
 
-
-
-
-
-👨‍💻 Author
+<h2>👨‍💻 Author</h2>
 
 Ashutosh Tare | Aspiring ML Engineer | Data Science Enthusiast

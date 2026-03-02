@@ -1,18 +1,44 @@
-# Stock-Price-Prediction
 
-In this project, I performed a time series analysis to predict stock prices using an LSTM (Long Short-Term Memory) neural network. The process involved:
+This project demonstrates how to predict stock prices using a Long Short-Term Memory (LSTM) neural network, a type of recurrent neural network well-suited for sequence prediction problems.
 
-Data Acquisition: 
-Downloading historical stock data (e.g., TATAGOLD.NS) using the yfinance library.
+<h2>Project Highlights:</h2>
 
-Data Preprocessing:
-Scaling the stock prices using MinMaxScaler to normalize the data, which is crucial for neural networks. I also handled data splitting into training and testing sets, and reshaped the data to create sequences suitable for LSTM input.
+<h3>Data Acquisition:</h3>
+Utilized the yfinance library to fetch historical stock data for a specified ticker symbol (e.g., TATAGOLD.NS).
 
-Model Building: Constructing a sequential LSTM model using Keras, including multiple LSTM layers and dense layers to learn complex patterns in the time series data.
+<h3>Data Preprocessing:</h3>
 
-Model Training: Compiling the model with an Adam optimizer and mean squared error loss, and then training it on the historical data.
+Scaling: Applied MinMaxScaler from sklearn.preprocessing to normalize stock closing prices, which is essential for stable and efficient neural network training.
 
-Model Evaluation: Making predictions on unseen test data, inverse transforming the predictions to their original scale, and evaluating the model's performance using metrics like Root Mean Squared Error (RMSE). 
+Train-Test Split: Divided the dataset into training and testing sets (80% training, 20% testing) to evaluate model performance on unseen data.
 
-Finally, visualizing the actual vs. predicted prices to understand the model's accuracy.
-This project provided hands-on experience with fundamental concepts in time series forecasting, deep learning for sequential data, and practical application of machine learning in financial markets.
+Sequence Creation: Implemented a custom function to create input sequences (e.g., 60 previous days' prices) and corresponding target values for the LSTM model.
+
+Reshaping for LSTM: Reshaped the input data to the required 3D format (samples, timesteps, features) for LSTM layers.
+
+<h3>Model Architecture (Keras/TensorFlow):</h3>
+Constructed a Sequential LSTM model.
+
+Included multiple LSTM layers (return_sequences=True for intermediate layers, return_sequences=False for the last LSTM layer).
+
+Added Dense layers for output projection.
+
+<h3>Model Training:</h3>
+
+Compiled the model using the adam optimizer and mean_squared_error as the loss function, standard choices for regression tasks.
+
+Trained the model efficiently over several epochs (epochs=10) with a batch size of 1.
+
+<h3>Model Evaluation:</h3>
+
+Root Mean Squared Error (RMSE): 0.5030766305086154
+
+Made predictions on the X_test dataset.
+
+Inverse transformed the scaled predictions and actual test values back to their original price scale for interpretability.
+
+Calculated the Root Mean Squared Error (RMSE) to quantify the difference between predicted and actual prices.
+A lower RMSE indicates higher prediction accuracy.
+
+<h3>Visualization:</h3>
+Plotted the actual stock prices against the model's predicted prices to visually assess the model's performance and identify trends or discrepancies.
